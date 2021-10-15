@@ -52,4 +52,5 @@ Expectations:
 - App should be working
 - Code should be modular and readable
 - Unit tests
+- Instructions to build, run and test the code
 - Your choice of language is one with which you are comfortable
