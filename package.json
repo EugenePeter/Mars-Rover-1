@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "develop": "rm -rf dist && tsc && nodemon dist/app.js",
     "start": "dist/app.js",
-    "test": "jest --no-cache --detectOpenHandles"
+    "test": "jest --no-cache --watch --detectOpenHandles"
   },
   "author": "Eugene Peter Maestrado",
   "license": "ISC",
@@ -18,6 +18,9 @@
     "typescript": "^4.4.4"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6"
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7"
   }
 }

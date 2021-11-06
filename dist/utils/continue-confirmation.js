@@ -50,4 +50,3 @@ var continueConfirmation = function (rover_position) {
     });
 };
 exports.continueConfirmation = continueConfirmation;
-//# sourceMappingURL=continue-confirmation.js.map

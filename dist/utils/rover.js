@@ -16,7 +16,6 @@ var Rover = /** @class */ (function () {
     function Rover(data) {
         var _a;
         this.data = (_a = (data || {})) !== null && _a !== void 0 ? _a : {};
-        console.log("ROVER", this.data);
     }
     Rover.prototype.panLeft = function () {
         var direction = this.data.cardinal_point;
@@ -63,8 +62,9 @@ var Rover = /** @class */ (function () {
                 break;
         }
     };
-    Rover.prototype.stop = function () { };
+    Rover.prototype.stop = function () {
+        return __assign({}, this.data);
+    };
     return Rover;
 }());
 exports.Rover = Rover;
-//# sourceMappingURL=rover.js.map

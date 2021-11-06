@@ -49,7 +49,7 @@ var readline = (0, readline_1.createInterface)({
 var navigateRover = function (rover_position) {
     console.log("\n", "\n");
     console.log("CURRENT ROVER POSITION", rover_position);
-    console.log("<<<<--- Input L or R to steer rover left or right, input M to move rover --->>>>");
+    console.log("<<<<--- Input L or R to steer rover left or right, input M to move rover one step forward --->>>>");
     console.table({
         L: {
             Operations: "LEFT",
@@ -65,7 +65,7 @@ var navigateRover = function (rover_position) {
         },
     });
     readline.question("input here: ", function (position) { return __awaiter(void 0, void 0, void 0, function () {
-        var rover, location, left_pan_res, right_pan_res, move_res;
+        var rover, location, left_pan_res, right_pan_res, move_res, res;
         return __generator(this, function (_a) {
             rover = new index_1.Rover(rover_position);
             location = position.toUpperCase();
@@ -87,7 +87,8 @@ var navigateRover = function (rover_position) {
                     (0, exports.navigateRover)(move_res);
                     break;
                 case "S":
-                    (0, app_1.continueConfirmation)();
+                    res = rover.stop();
+                    (0, app_1.continueConfirmation)(res);
                     break;
                 default:
                     break;
@@ -97,4 +98,3 @@ var navigateRover = function (rover_position) {
     }); });
 };
 exports.navigateRover = navigateRover;
-//# sourceMappingURL=navigate-rover.js.map

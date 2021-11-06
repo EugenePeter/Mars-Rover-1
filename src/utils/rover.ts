@@ -8,7 +8,6 @@ export class Rover<T extends IRover> {
   data: T;
   constructor(data: T) {
     this.data = (data || {}) ?? {};
-    console.log("ROVER", this.data);
   }
   panLeft() {
     const direction = this.data.cardinal_point;
@@ -92,5 +91,9 @@ export class Rover<T extends IRover> {
         break;
     }
   }
-  stop() {}
+  stop() {
+    return {
+      ...this.data,
+    };
+  }
 }

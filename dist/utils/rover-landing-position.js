@@ -13,4 +13,3 @@ var setRoverPosition = function (position) {
     };
 };
 exports.setRoverPosition = setRoverPosition;
-//# sourceMappingURL=rover-landing-position.js.map

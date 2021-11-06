@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.continueConfirmation = exports.navigateRover = exports.updatePosition = exports.setRoverPosition = exports.Rover = void 0;
+exports.logger = exports.continueConfirmation = exports.navigateRover = exports.updatePosition = exports.setRoverPosition = exports.Rover = void 0;
 var rover_1 = require("./rover");
 Object.defineProperty(exports, "Rover", { enumerable: true, get: function () { return rover_1.Rover; } });
 var rover_landing_position_1 = require("./rover-landing-position");
@@ -11,4 +11,5 @@ var navigate_rover_1 = require("./navigate-rover");
 Object.defineProperty(exports, "navigateRover", { enumerable: true, get: function () { return navigate_rover_1.navigateRover; } });
 var continue_confirmation_1 = require("./continue-confirmation");
 Object.defineProperty(exports, "continueConfirmation", { enumerable: true, get: function () { return continue_confirmation_1.continueConfirmation; } });
-//# sourceMappingURL=index.js.map
+var logger_1 = require("./logger");
+Object.defineProperty(exports, "logger", { enumerable: true, get: function () { return logger_1.logger; } });

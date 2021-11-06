@@ -17,4 +17,3 @@ var updatePosition = function (position) {
     return __assign(__assign({}, app_1.rover_position), position);
 };
 exports.updatePosition = updatePosition;
-//# sourceMappingURL=update-position.js.map

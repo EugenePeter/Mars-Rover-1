@@ -14,7 +14,9 @@ const readline = createInterface({
 export const navigateRover = (rover_position: IRoverPosition | any) => {
   console.log("\n", "\n");
   console.log("CURRENT ROVER POSITION", rover_position);
-  console.log("<<<<--- Input L or R to steer rover left or right, input M to move rover --->>>>");
+  console.log(
+    "<<<<--- Input L or R to steer rover left or right, input M to move rover one step forward --->>>>"
+  );
   console.table({
     L: {
       Operations: "LEFT",
@@ -50,7 +52,8 @@ export const navigateRover = (rover_position: IRoverPosition | any) => {
         navigateRover(move_res);
         break;
       case "S":
-        continueConfirmation();
+        const res = rover.stop();
+        continueConfirmation(res);
         break;
       default:
         break;
