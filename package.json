@@ -6,8 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "develop": "rm -rf dist && tsc && nodemon dist/app.js",
-    "start": "dist/app.js",
-    "test": "jest --no-cache --watch --detectOpenHandles"
+    "start": "rm -rf dist && tsc && nodemon dist/app.js",
+    "test": "jest --no-cache --watchAll --detectOpenHandles"
   },
   "author": "Eugene Peter Maestrado",
   "license": "ISC",

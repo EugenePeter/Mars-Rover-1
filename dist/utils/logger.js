@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
-var logger = function (params) {
-    console.log("\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "PARAMS:", params);
+const logger = (params) => {
     if (params && params.operation) {
         switch (params.operation) {
             case "continueConfirmation":
-                var _a = params.data, _b = _a === void 0 ? {} : _a, x = _b.x, y = _b.y, cardinal_point = _b.cardinal_point;
+                const { data: { x, y, cardinal_point } = {} } = params;
                 console.log("\n", "\n");
                 console.log("\n", "********____________********", "\n");
                 console.table({

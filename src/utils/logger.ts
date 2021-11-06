@@ -4,7 +4,6 @@ export interface Params {
 }
 
 export const logger = (params: Params): void => {
-  console.log("\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n", "PARAMS:", params);
   if (params && params.operation) {
     switch (params.operation) {
       case "continueConfirmation":

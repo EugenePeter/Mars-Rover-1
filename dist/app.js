@@ -1,37 +1,35 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setRoverLandingPosition = exports.rover_position = exports.continueConfirmation = void 0;
-var readline_1 = require("readline");
-var utils_1 = require("./utils");
-var readline = (0, readline_1.createInterface)({
+exports.setRoverLandingPosition = void 0;
+const readline_1 = require("readline");
+const utils_1 = require("./utils");
+const rover_1 = require("./rover");
+const readline = (0, readline_1.createInterface)({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
 });
-var continueConfirmation = function (position) {
-    (0, utils_1.logger)({ operation: "continueConfirmation", data: position });
-    readline.question("Set position for another rover: ", function (answer) {
-        console.log("\n");
-        (0, exports.setRoverLandingPosition)();
-    });
-};
-exports.continueConfirmation = continueConfirmation;
-exports.rover_position = {
-    x: null,
-    y: null,
-    cardinal_point: null,
-};
-var setRoverLandingPosition = function () {
-    console.log("\n", "********________INSTRUCTION____************", "\n");
-    console.log("<<<<--- input a rover landing location --->>>");
-    console.log("<<<<--- accepts three arguments separated by a space: x with values 0-9, y with values 0-9, and z with values of N,S,E,W:representing compass points --->>>");
-    // logger({});
-    readline.question("Input here: ", function (position) {
-        console.log("QWERQWERQWRQWER:", position);
-        var result = position && (0, utils_1.setRoverPosition)(position);
-        console.log("setRoverPosition RES:", result);
-        (0, utils_1.navigateRover)(result);
-    });
-};
+const setRoverLandingPosition = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0, utils_1.logger)({ operation: "setRoverLandingPosition" });
+    readline.question("Input here: ", (position) => __awaiter(void 0, void 0, void 0, function* () {
+        const { landing_location, unrecognize_position } = (0, utils_1.inputChecker)(position);
+        if (unrecognize_position) {
+            (0, exports.setRoverLandingPosition)();
+        }
+        else {
+            const result = landing_location && (0, rover_1.setRoverPosition)(landing_location);
+            (0, rover_1.navigateRover)(result);
+        }
+    }));
+});
 exports.setRoverLandingPosition = setRoverLandingPosition;
 (0, exports.setRoverLandingPosition)();
