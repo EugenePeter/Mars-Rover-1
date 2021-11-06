@@ -24,7 +24,7 @@
 ## MARS ROVER TEST
 
 Here is my take on the Mars Rover test given to me as a coding test.
-I haven't really expect to have this kind of challenge but anyways its is very nice project to test my problem solving skills in general without worrying much on the tech stack that I am using and the features that should be in the application.
+I haven't really expected to have this kind of challenge but anyways its is very nice project to test my problem solving skills in general without worrying much on the tech stack that I am using and the features that should be in the application.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
