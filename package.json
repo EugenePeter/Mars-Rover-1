@@ -1,0 +1,23 @@
+{
+  "name": "mars-rover-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "develop": "rm -rf dist && tsc && nodemon dist/app.js",
+    "start": "dist/app.js",
+    "test": "jest --no-cache --detectOpenHandles"
+  },
+  "author": "Eugene Peter Maestrado",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6"
+  }
+}
