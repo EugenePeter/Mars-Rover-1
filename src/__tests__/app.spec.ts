@@ -1,7 +1,8 @@
 import { Rover } from "../rover/rover";
-import { navigateRover, setRoverPosition } from "../rover";
-import { continueConfirmation } from "../rover/continue-confirmation";
-import { inputChecker } from "../utils";
+import { navigateRover, setRoverPosition, continueConfirmation } from "../rover";
+import { inputChecker, navigationValuesChecker } from "../utils";
+
+// import { setRoverLandingPosition } from "../app";
 console.clear();
 export interface IRoverPosition {
   x: number | null;
@@ -10,14 +11,36 @@ export interface IRoverPosition {
 }
 const { landing_location } = inputChecker("1 2 N");
 
-describe("set rover landing position", () => {
+describe("INPUT CHECKER", () => {
+  it("should return [TRUE] if invalid values are given", () => {
+    const { unrecognize_position } = inputChecker("1 1 x");
+    expect(unrecognize_position).toBe(true);
+  });
+  it("should return [FALSE] if valid values are given", () => {
+    const { unrecognize_position } = inputChecker("1 1 N");
+    expect(unrecognize_position).toBe(false);
+  });
+});
+
+describe("NAVIGATION VALUES CHECKER", () => {
+  it("should return [FALSE] if invalid values are given", () => {
+    const result = navigationValuesChecker("W");
+    expect(result).toBe(false);
+  });
+  it("should return [TRUE] if invalid values are given", () => {
+    const result = navigationValuesChecker("R");
+    expect(result).toBe(true);
+  });
+});
+
+describe("SET ROVER LANDING POSITION", () => {
   const rover_position = setRoverPosition(landing_location);
-  it("set rover position should return positions", () => {
+  it("should return positions", () => {
     expect(rover_position).toEqual({ x: 1, y: 2, cardinal_point: "N" });
   });
 });
 
-describe("rover", () => {
+describe("ROVER", () => {
   it("should stop at the right location", () => {
     const rover_position = setRoverPosition(landing_location);
     console.log("ROVER POSITION:", rover_position);

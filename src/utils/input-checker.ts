@@ -18,7 +18,7 @@ export const inputChecker = (input: string): InputCheckerReturnValue => {
   };
 };
 
-export const navigationValuesChecker = (input: string) => {
+export const navigationValuesChecker = (input: string): boolean => {
   const removeSpace = input.replace(/ /g, "").toUpperCase();
   const res = navigation_dictionary[removeSpace];
   return res ? true : false;
