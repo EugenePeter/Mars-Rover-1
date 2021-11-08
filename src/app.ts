@@ -1,18 +1,11 @@
-import { createInterface } from "readline";
 import { logger, inputChecker } from "./utils";
 import { setRoverPosition, navigateRover } from "./rover";
+import { readline } from "./utils/readline";
 
-const readline = createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
-
-type Position = string;
 export const setRoverLandingPosition = async () => {
   await logger({ operation: "setRoverLandingPosition" });
-  readline.question("Input here: ", async (position: Position) => {
-    const { landing_location, unrecognize_position } = inputChecker(position);
+  readline.question("Input here: ", async (position: string) => {
+    const { landing_location, unrecognize_position } = inputChecker<string>(position);
 
     if (unrecognize_position) {
       setRoverLandingPosition();

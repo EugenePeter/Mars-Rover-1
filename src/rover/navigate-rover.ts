@@ -1,39 +1,14 @@
-import { createInterface } from "readline";
 import { Rover, continueConfirmation, invalidInputPrompt } from "./index";
 import { IRoverPosition } from "./types";
-import { navigationValuesChecker } from "../utils";
-
-const readline = createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
+import { navigationValuesChecker, logger } from "../utils";
+import { readline } from "../utils/readline";
 
 let cache: IRoverPosition;
 
 export const navigateRover = (rover_position: IRoverPosition | any) => {
-  console.log("\n", "\n");
-  console.log("CURRENT ROVER POSITION", rover_position);
-  console.log(
-    "<<<<--- Input L or R to steer rover left or right, input M to move rover one step forward --->>>>"
-  );
-
   cache = rover_position;
 
-  console.table({
-    L: {
-      Operations: "LEFT",
-    },
-    R: {
-      Operations: "RIGHT",
-    },
-    M: {
-      Operations: "MOVE",
-    },
-    S: {
-      Operations: "STOP",
-    },
-  });
+  logger({ operation: "navigateRover", data: rover_position });
   readline.question("input here: ", async (position) => {
     const isInputValid = navigationValuesChecker(position);
     if (!isInputValid) {

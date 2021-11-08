@@ -10,35 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.navigateRover = void 0;
-const readline_1 = require("readline");
 const index_1 = require("./index");
 const utils_1 = require("../utils");
-const readline = (0, readline_1.createInterface)({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false,
-});
+const readline_1 = require("../utils/readline");
 let cache;
 const navigateRover = (rover_position) => {
-    console.log("\n", "\n");
-    console.log("CURRENT ROVER POSITION", rover_position);
-    console.log("<<<<--- Input L or R to steer rover left or right, input M to move rover one step forward --->>>>");
     cache = rover_position;
-    console.table({
-        L: {
-            Operations: "LEFT",
-        },
-        R: {
-            Operations: "RIGHT",
-        },
-        M: {
-            Operations: "MOVE",
-        },
-        S: {
-            Operations: "STOP",
-        },
-    });
-    readline.question("input here: ", (position) => __awaiter(void 0, void 0, void 0, function* () {
+    (0, utils_1.logger)({ operation: "navigateRover", data: rover_position });
+    readline_1.readline.question("input here: ", (position) => __awaiter(void 0, void 0, void 0, function* () {
         const isInputValid = (0, utils_1.navigationValuesChecker)(position);
         if (!isInputValid) {
             (0, index_1.invalidInputPrompt)(cache);

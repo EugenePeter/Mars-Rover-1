@@ -1,14 +1,9 @@
-import { createInterface } from "readline";
 import { IRoverPosition } from "./types";
 import { setRoverLandingPosition } from "../app";
 import { logger } from "./index";
 import { navigateRover } from "./index";
+import { readline } from "../utils/readline";
 
-const readline = createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
 export const continueConfirmation = async (position: IRoverPosition) => {
   await logger({ operation: "continueConfirmation", data: position });
   readline.question("Set position for another rover? (Y/N) ", async (answer) => {

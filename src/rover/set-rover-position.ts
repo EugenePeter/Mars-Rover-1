@@ -1,4 +1,4 @@
-import { IsetRoverPosition, IRoverPosition } from "./types";
+import { IRoverPosition } from "./types";
 
 export const setRoverPosition = (position: string[]): IRoverPosition => {
   return {

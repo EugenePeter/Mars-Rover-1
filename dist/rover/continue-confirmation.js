@@ -10,24 +10,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.invalidInputPrompt = exports.continueConfirmation = void 0;
-const readline_1 = require("readline");
 const app_1 = require("../app");
 const index_1 = require("./index");
 const index_2 = require("./index");
-const readline = (0, readline_1.createInterface)({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false,
-});
+const readline_1 = require("../utils/readline");
 const continueConfirmation = (position) => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, index_1.logger)({ operation: "continueConfirmation", data: position });
-    readline.question("Set position for another rover? (Y/N) ", (answer) => __awaiter(void 0, void 0, void 0, function* () {
-        // console.log("\n");
-        // setRoverLandingPosition();
+    readline_1.readline.question("Set position for another rover? (Y/N) ", (answer) => __awaiter(void 0, void 0, void 0, function* () {
         if (answer.toUpperCase() === "N") {
-            // process.exit();
-            // setRoverLandingPosition();
-            readline.close();
+            readline_1.readline.close();
         }
         else {
             console.clear();
@@ -38,11 +29,10 @@ const continueConfirmation = (position) => __awaiter(void 0, void 0, void 0, fun
 exports.continueConfirmation = continueConfirmation;
 const invalidInputPrompt = (cache) => __awaiter(void 0, void 0, void 0, function* () {
     yield console.log("INVALID INPUT: ONLY CHARACTERS L, R, M S is allowed");
-    readline.question("try again ?: (Y/N) ", (answer) => __awaiter(void 0, void 0, void 0, function* () {
+    readline_1.readline.question("try again ?: (Y/N) ", (answer) => __awaiter(void 0, void 0, void 0, function* () {
         if (answer.toUpperCase() === "N") {
-            // process.exit();
             (0, app_1.setRoverLandingPosition)();
-            readline.close();
+            readline_1.readline.close();
         }
         else {
             console.clear();

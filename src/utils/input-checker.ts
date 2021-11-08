@@ -1,4 +1,3 @@
-import { formatDiagnosticsWithColorAndContext } from "typescript";
 import { position_dictionary, navigation_dictionary } from "./position-dictionary";
 
 interface InputCheckerReturnValue {
@@ -6,7 +5,7 @@ interface InputCheckerReturnValue {
   landing_location: string[];
 }
 
-export const inputChecker = (input: string): InputCheckerReturnValue => {
+export const inputChecker = <T extends String>(input: T): InputCheckerReturnValue => {
   const removeSpace = input.replace(/ /g, "").toUpperCase();
   const convertedToArray = [...removeSpace];
   const unrecognize_position = convertedToArray.some((input) => {
@@ -22,5 +21,4 @@ export const navigationValuesChecker = (input: string): boolean => {
   const removeSpace = input.replace(/ /g, "").toUpperCase();
   const res = navigation_dictionary[removeSpace];
   return res ? true : false;
-  // console.log("???????????????????????????????????????????:", res);
 };
