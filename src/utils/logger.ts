@@ -8,7 +8,7 @@ export const logger = (params: Params): void => {
   if (params && params.operation) {
     switch (params.operation) {
       case "add_second_rover":
-        console.log("<<<<--- SET LANDING POSITION FOR ROVER 2:: (Y/N)--->>>>");
+        console.log("<<<<--- SET LANDING POSITION FOR ROVER 2: (Y/N)--->>>>");
         console.table({
           Y: {
             Operations: "YES",
