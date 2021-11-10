@@ -67,7 +67,7 @@ Install nodejs, nodemon, typescript, ts-node and jest
 Assuming node and npm is installed, just run the command below to start the project.
 
 1. ```sh
-     npm start
+   npm start
    ```
    or
    ```sh
@@ -79,11 +79,11 @@ Assuming node and npm is installed, just run the command below to start the proj
 
 **LANDING POSITION**
 
-The first input the the program accepts is the initial landing position of the rover.
+The first input that the program accepts is the initial landing position of the rover.
 For [**x**] and [**y**], only input [**0-5**] is accepted as a **valid coordinate** for the **plateau** that is **5** by **5** in size. For [**z**] variable only valid compass points are accepted ie. [**N,S,E,W**].
 
 The initial landing position should be inputted in one line with each coordinates and cardinal/compass point separated by spaces i.e. **1 2 N** or **3 3 E**.
-I designed the program to accept input without spaces i.e. **12n**, the program then separates the characters and transforms to uppercase and turns it into an **array** of **strings**.
+I designed the program to accept possible input without spaces i.e. **12n**, the program then separates the characters and transforms to uppercase and turns it into an **array** of **strings**.
 
 The program will guard against invalid data. The guard will return boolean values, if the program returns true which means invalid data is given, it will reset and take the user back to input valid characters. if it returns false then users can proceed to input navigation commands.
 
