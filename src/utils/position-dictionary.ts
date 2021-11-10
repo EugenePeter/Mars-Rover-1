@@ -20,4 +20,5 @@ export const navigation_dictionary: IPosDict = {
   R: "R",
   M: "M",
   S: "S",
+  A: "A",
 };

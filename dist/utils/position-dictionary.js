@@ -18,4 +18,5 @@ exports.navigation_dictionary = {
     R: "R",
     M: "M",
     S: "S",
+    A: "A",
 };

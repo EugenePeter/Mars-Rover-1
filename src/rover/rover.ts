@@ -2,6 +2,7 @@ interface IRover {
   x: number;
   y: number;
   cardinal_point: string;
+  rover?: string;
 }
 
 export class Rover<T extends IRover> {

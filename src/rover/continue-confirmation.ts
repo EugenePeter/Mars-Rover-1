@@ -1,17 +1,31 @@
-import { IRoverPosition } from "./types";
+import { ICache, IRoverPosition } from "./types";
 import { setRoverLandingPosition } from "../app";
 import { logger } from "./index";
 import { navigateRover } from "./index";
 import { readline } from "../utils/readline";
 
-export const continueConfirmation = async (position: IRoverPosition) => {
+export const continueConfirmation = async (position: ICache) => {
   await logger({ operation: "continueConfirmation", data: position });
-  readline.question("Set position for another rover? (Y/N) ", async (answer) => {
+  readline.question("Do you wish to continue? (Y/N) ", async (answer) => {
     if (answer.toUpperCase() === "N") {
+      setRoverLandingPosition();
+      // readline.close();
+    } else {
+      console.clear();
+      setRoverLandingPosition("Rover2");
+    }
+  });
+};
+
+export const addSecondRover = async (position: IRoverPosition) => {
+  await logger({ operation: "add_second_rover" });
+  readline.question("input here", async (answer) => {
+    if (answer.toUpperCase() === "N") {
+      setRoverLandingPosition();
       readline.close();
     } else {
       console.clear();
-      setRoverLandingPosition();
+      setRoverLandingPosition("Rover2");
     }
   });
 };
@@ -24,7 +38,7 @@ export const invalidInputPrompt = async (cache: IRoverPosition) => {
       readline.close();
     } else {
       console.clear();
-      navigateRover(cache);
+      navigateRover(cache, null);
     }
   });
 };

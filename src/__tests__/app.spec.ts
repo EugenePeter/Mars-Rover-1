@@ -2,12 +2,16 @@ import { Rover } from "../rover/rover";
 import { navigateRover, setRoverPosition, continueConfirmation } from "../rover";
 import { inputChecker, navigationValuesChecker } from "../utils";
 
-// import { setRoverLandingPosition } from "../app";
 console.clear();
 export interface IRoverPosition {
   x: number | null;
   y: number | null;
   cardinal_point: string | null;
+}
+
+interface ICache {
+  Rover1: {};
+  Rover2: {};
 }
 const { landing_location } = inputChecker("1 2 N");
 
@@ -47,30 +51,42 @@ describe("ROVER", () => {
     const rover = new Rover(rover_position);
     const positions = "LMLMLMLMM";
     const positionCommands = positions.split("");
+    const rover_number = "Rover1";
     let current_position: IRoverPosition;
+    let cache: ICache = {
+      Rover1: {},
+      Rover2: {},
+    };
 
     positionCommands.map((command, index, array) => {
       switch (command) {
         case "L":
           const left_pan_res = rover.panLeft();
-          navigateRover(left_pan_res!);
+          navigateRover(left_pan_res!, null);
           current_position = left_pan_res!;
           console.log("PAN LEFT RES:", left_pan_res);
           break;
         case "R":
           const right_pan_res = rover.panRight();
-          navigateRover(right_pan_res!);
+          navigateRover(right_pan_res!, null);
           current_position = right_pan_res!;
           break;
         case "M":
           const move_res = rover.move();
           console.log("move_res:", move_res);
-          navigateRover(move_res!);
+          navigateRover(move_res!, null);
           current_position = move_res!;
           break;
         case "S":
           const res = rover.stop();
-          continueConfirmation(res);
+          cache = {
+            ...cache,
+            [rover_number]: {
+              ...rover_position,
+              res,
+            },
+          };
+          continueConfirmation(cache);
           break;
         default:
           break;

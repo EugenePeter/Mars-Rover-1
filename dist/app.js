@@ -13,7 +13,7 @@ exports.setRoverLandingPosition = void 0;
 const utils_1 = require("./utils");
 const rover_1 = require("./rover");
 const readline_1 = require("./utils/readline");
-const setRoverLandingPosition = () => __awaiter(void 0, void 0, void 0, function* () {
+const setRoverLandingPosition = (data = null) => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, utils_1.logger)({ operation: "setRoverLandingPosition" });
     readline_1.readline.question("Input here: ", (position) => __awaiter(void 0, void 0, void 0, function* () {
         const { landing_location, unrecognize_position } = (0, utils_1.inputChecker)(position);
@@ -22,7 +22,7 @@ const setRoverLandingPosition = () => __awaiter(void 0, void 0, void 0, function
         }
         else {
             const result = landing_location && (0, rover_1.setRoverPosition)(landing_location);
-            (0, rover_1.navigateRover)(result);
+            (0, rover_1.navigateRover)(result, data);
         }
     }));
 });
