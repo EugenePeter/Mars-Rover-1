@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
-    "develop": "rm -rf dist && tsc && nodemon dist/app.js",
-    "start": "rm -rf dist && tsc && nodemon dist/app.js",
+    "copy": "copyfiles --flat src/input.txt dist",
+    "develop": "rm -rf dist && tsc && yarn copy && nodemon dist/app.js",
+    "yo": "node dist/app.js",
+    "start": "ts-node src/app.ts",
     "test": "jest --no-cache --watchAll --detectOpenHandles"
   },
   "author": "Eugene Peter Maestrado",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
+    "copyfiles": "^2.4.1",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7"
   }
