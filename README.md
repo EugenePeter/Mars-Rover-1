@@ -67,7 +67,7 @@ Install nodejs, nodemon, typescript, ts-node and jest
 Assuming node and npm is installed, just run the command below to start the project.
 
 1. ```sh
-     npm start
+   npm start
    ```
    or
    ```sh
@@ -79,19 +79,20 @@ Assuming node and npm is installed, just run the command below to start the proj
 
 **LANDING POSITION**
 
-The program reads the command from the given input.txt file.
-For setting the landing position it gets the Rovers landing position from the input.txt file.
+The program reads commands from the given input.txt file.
+For setting the landing position, it gets the Rovers landing position from the input.txt file.
 
-The progam will prompt user and ask to type "Y" in order to proceed and read the landing cordinates from the text file.
+The progam will prompt user and ask to type "Y" in order to proceed and read the landing coordinates from the text file.
 
 **NAVIGATION COMMANDS**
 
-After setting the landing coordinates. The program will then prompt users to types "Y" to proceed. After typing yes the program will the read navigation instructions from the txt file.
+After setting the landing coordinates. The program will then prompt users to type "Y" in order to proceed. After typing yes the program will then read the navigation instructions from the txt file.
 
 **SETTING COMMANDS FOR ROVER 2**
+
 After adding in the navigation instructions for the **first rover**, the program will ask user to type "Y" in order to proceed with giving commands for **rover 2**.
 
-For **rover** all steps are similar to **rover 1** and will execute the same commands that was read from the txt file.
+For **rover 2** all steps are similar to **rover 1** and will execute the same commands that was read from the txt file.
 
 ## OLD Implementation
 
