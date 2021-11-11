@@ -1,6 +1,6 @@
 interface IRover {
-  x: number;
-  y: number;
+  x: number | null;
+  y: number | null;
   cardinal_point: string;
   rover?: string;
 }
@@ -67,26 +67,27 @@ export class Rover<T extends IRover> {
   }
   move() {
     const direction = this.data.cardinal_point;
+
     switch (direction) {
       case "N":
         return {
           ...this.data,
-          y: this.data.y + 1,
+          y: this.data.y! + 1,
         };
       case "S":
         return {
           ...this.data,
-          y: --this.data.y,
+          y: --this.data.y!,
         };
       case "E":
         return {
           ...this.data,
-          x: this.data.x + 1,
+          x: this.data.x! + 1,
         };
       case "W":
         return {
           ...this.data!,
-          x: this.data.x - 1,
+          x: this.data.x! - 1,
         };
       default:
         break;

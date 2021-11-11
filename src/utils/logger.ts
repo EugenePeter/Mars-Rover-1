@@ -8,15 +8,7 @@ export const logger = (params: Params): void => {
   if (params && params.operation) {
     switch (params.operation) {
       case "add_second_rover":
-        console.log("<<<<--- SET LANDING POSITION FOR ROVER 2: (Y/N)--->>>>");
-        console.table({
-          Y: {
-            Operations: "YES",
-          },
-          N: {
-            Operations: "NO",
-          },
-        });
+        console.log("<<<<--- SET LANDING POSITION FOR ROVER 2: Type [Y] to proceed--->>>>");
         break;
       case "continueConfirmation":
         console.log("\n", "\n");
@@ -64,25 +56,6 @@ export const logger = (params: Params): void => {
       case "navigateRover2":
         const { Rover1 = {}, Rover2 = {} } = data ?? {};
         console.log("\n", "\n");
-        console.log(
-          "<<<<--- Input L or R to steer rover left or right, input M to move rover one step forward --->>>>"
-        );
-        console.table({
-          L: {
-            Operations: "LEFT",
-          },
-          R: {
-            Operations: "RIGHT",
-          },
-          M: {
-            Operations: "MOVE",
-          },
-          A: { Operations: "ADD SECOND ROVER" },
-          S: {
-            Operations: "STOP",
-          },
-        });
-        console.log("\n");
         console.log("-----------------------------------");
         console.log(`Rover1:${Rover1.x} ${Rover1.y} ${Rover1.cardinal_point}`);
         console.log(`Rover2:${Rover2.x || ""} ${Rover2.y || ""} ${Rover2.cardinal_point || ""}`);

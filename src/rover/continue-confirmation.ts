@@ -9,7 +9,6 @@ export const continueConfirmation = async (position: ICache) => {
   readline.question("Do you wish to continue? (Y/N) ", async (answer) => {
     if (answer.toUpperCase() === "N") {
       setRoverLandingPosition();
-      // readline.close();
     } else {
       console.clear();
       setRoverLandingPosition("Rover2");
@@ -17,9 +16,9 @@ export const continueConfirmation = async (position: ICache) => {
   });
 };
 
-export const addSecondRover = async (position: IRoverPosition) => {
+export const addSecondRover = async () => {
   await logger({ operation: "add_second_rover" });
-  readline.question("input here", async (answer) => {
+  readline.question("input here: ", async (answer) => {
     if (answer.toUpperCase() === "N") {
       setRoverLandingPosition();
       readline.close();
