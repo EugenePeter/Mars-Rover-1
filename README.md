@@ -78,6 +78,7 @@ Assuming node and npm is installed, just run the command below to start the proj
 ## UPDATED IMPLEMENTATION
 
 **LANDING POSITION**
+
 The program reads the command from the given input.txt file.
 For setting the landing position it gets the Rovers landing position from the input.txt file.
 
