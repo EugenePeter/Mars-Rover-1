@@ -7,8 +7,7 @@
     "watch": "tsc -w",
     "copy": "copyfiles --flat src/input.txt dist",
     "develop": "rm -rf dist && tsc && yarn copy && nodemon dist/app.js",
-    "yo": "node dist/app.js",
-    "start": "ts-node src/app.ts",
+    "start": "rm -rf dist && tsc && yarn copy && nodemon dist/app.js",
     "test": "jest --no-cache --watchAll --detectOpenHandles"
   },
   "author": "Eugene Peter Maestrado",
