@@ -6,8 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "copy": "copyfiles --flat src/input.txt dist",
-    "develop": "rm -rf dist && tsc && yarn copy && nodemon dist/app.js",
-    "start": "rm -rf dist && tsc && yarn copy && nodemon dist/app.js",
+    "develop": "rm -rf dist && tsc && npm run copy && nodemon dist/app.js",
+    "start": "rm -rf dist && tsc && npm run copy && nodemon dist/app.js",
     "test": "jest --no-cache --watchAll --detectOpenHandles"
   },
   "author": "Eugene Peter Maestrado",
