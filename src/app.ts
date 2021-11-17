@@ -7,7 +7,7 @@ import fs from "fs";
 const res = fs
   .readFileSync(__dirname + "/input.txt", "utf-8")
   .split("\n")
-  .map((item: any) => item.replace(/[\r" "]/g, ""));
+  .map((item: string) => item.replace(/[\r" "]/g, ""));
 
 const plateau = res.filter((command) => command.indexOf("Plateau") >= 0);
 const rover1_commands = res.filter((command) => command.indexOf("Rover1") >= 0);
